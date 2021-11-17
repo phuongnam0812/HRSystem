@@ -1,5 +1,8 @@
 <?php
 	include 'includes/session.php';
+	function password_verify_custom($pwInput, $pwDB) {
+  		return strcmp($pwInput, $pwDB)==0;
+    } 
 
 	if(isset($_GET['return'])){
 		$return = $_GET['return'];
@@ -16,7 +19,7 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$photo = $_FILES['photo']['name'];
-		if(password_verify($curr_password, $user['password'])){
+		if(password_verify_custom($curr_password, $user['password'])){
 			if(!empty($photo)){
 				move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$photo);
 				$filename = $photo;	
@@ -29,7 +32,7 @@
 				$password = $user['password'];
 			}
 			else{
-				$password = password_hash($password, PASSWORD_DEFAULT);
+				$password = $password;
 			}
 
 			$sql = "UPDATE admin SET username = '$username', password = '$password', firstname = '$firstname', lastname = '$lastname', photo = '$filename' WHERE id = '".$user['id']."'";

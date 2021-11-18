@@ -1,5 +1,6 @@
 <?php
 	include 'includes/session.php';
+	ob_start();
 
 	function generateRow($from, $to, $conn, $deduction){
 		$contents = '';
@@ -82,6 +83,7 @@
     $content .= generateRow($from, $to, $conn, $deduction);  
     $content .= '</table>';  
     $pdf->writeHTML($content);  
+    ob_end_clean();
     $pdf->Output('payroll.pdf', 'I');
 
 ?>

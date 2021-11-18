@@ -1,5 +1,6 @@
 <?php
 	include 'includes/session.php';
+    ob_start();
 	
 	$range = $_POST['date_range'];
 	$ex = explode(' - ', $range);
@@ -98,6 +99,7 @@
 		';
 	}
     $pdf->writeHTML($contents);  
+    ob_end_clean();
     $pdf->Output('payslip.pdf', 'I');
 
 ?>

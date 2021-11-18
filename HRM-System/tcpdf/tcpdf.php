@@ -16546,10 +16546,14 @@ class TCPDF {
 						// get style attributes
 						preg_match_all('/([^;:\s]*):([^;]*)/', $dom[$key]['attribute']['style'], $style_array, PREG_PATTERN_ORDER);
 						$dom[$key]['style'] = array(); // reset style attribute array
-						while (list($id, $name) = each($style_array[1])) {
-							// in case of duplicate attribute the last replace the previous
-							$dom[$key]['style'][strtolower($name)] = trim($style_array[2][$id]);
-						}
+						// while (list($id, $name) = each($style_array[1])) {
+						// 	// in case of duplicate attribute the last replace the previous
+						// 	$dom[$key]['style'][strtolower($name)] = trim($style_array[2][$id]);
+						// }
+						for ($i = 0; $i < count($style_array[1]); $i ++){
+						// $dom[$key]['attribute'][strtolower($attr_array[1][$i])] = $attr_array[2][$i];
+							$dom[$key]['style'][strtolower($attr_array[1][$i])] = trim($style_array[2][$id]);
+					}
 						// --- get some style attributes ---
 						// text direction
 						if (isset($dom[$key]['style']['direction'])) {

@@ -1,5 +1,6 @@
 <?php
 	include 'includes/session.php';
+  ob_start();
 
 	function generateRow($conn){
 		$contents = '';
@@ -50,6 +51,7 @@
     $content .= generateRow($conn); 
     $content .= '</table>';  
     $pdf->writeHTML($content);  
+    ob_end_clean();
     $pdf->Output('schedule.pdf', 'I');
 
 ?>

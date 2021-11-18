@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 18, 2021 lúc 10:02 AM
+-- Thời gian đã tạo: Th10 18, 2021 lúc 10:34 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'ly3012', '$2y$10$fCOiMky4n5hCJx3cpsG20Od4wHtlkCLKmO6VLobJNRIg9ooHTkgjK', 'Phung', 'Ly', 'girl8.jpg', '2021-11-03');
+(1, 'ly3012', '123456', 'Phung', 'Ly', 'girl8.jpg', '2021-11-03'),
+(2, 'phuongnam', '123456', 'Namy', 'Hordan', 'Namy.jpg', '2021-11-03');
 
 -- --------------------------------------------------------
 
@@ -1347,7 +1348,7 @@ ALTER TABLE `schedules`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `attendance`

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 19, 2021 lúc 06:38 AM
+-- Thời gian đã tạo: Th10 19, 2021 lúc 03:37 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.12
 
@@ -1334,7 +1334,8 @@ ALTER TABLE `admin`
 -- Chỉ mục cho bảng `attendance`
 --
 ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_employeeid` (`employee_id`);
 
 --
 -- Chỉ mục cho bảng `cashadvance`
@@ -1352,7 +1353,9 @@ ALTER TABLE `deductions`
 -- Chỉ mục cho bảng `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_firstname` (`firstname`),
+  ADD KEY `idx_lastname` (`lastname`);
 
 --
 -- Chỉ mục cho bảng `overtime`
